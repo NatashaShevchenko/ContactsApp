@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsAppUI", "ContactsAppUI\ContactsAppUI.csproj", "{3D6CCC2F-099C-41B5-9913-EAFAFAE90EDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D6CCC2F-099C-41B5-9913-EAFAFAE90EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6CCC2F-099C-41B5-9913-EAFAFAE90EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6CCC2F-099C-41B5-9913-EAFAFAE90EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6CCC2F-099C-41B5-9913-EAFAFAE90EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D8E3D2A-BE9A-46C3-8B3D-7003874E87CE}
+	EndGlobalSection
+EndGlobal
