@@ -8,5 +8,8 @@ namespace ContactsApp
 {
     public class ProjectManager
     {
+        //никаких полей
+        //метод SaveToFile
+        //метод LoadFromFile
     }
 }
