@@ -22,13 +22,18 @@ namespace ContactsAppUI
             contact.Name = "Natasha";
             contact.VK = "9876543";
             contact.Email = "NatashaShevchenko@gmail.com";
-            contact.Email = "27.07.1996";
+        
 
-            //DateTime datetime = dateTimePicker1.Value;
+           // DateTime datetime = dateTimePicker1.Value;
 
             //создать один-два контакта
             //создать проект и поместить в него два контакта
             //с помощью ProjectManager сохранить проект в какой-нибудь файл
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
