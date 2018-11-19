@@ -23,11 +23,11 @@ namespace ContactsApp
             {
                 if (value.ToString() == string.Empty)
                 {
-                    throw new ArgumentNullException("Поле не может быть пустым");
+                    throw new ArgumentNullException("Поле не может быть пустым.");
                 }
                 else if (value.ToString().Length > 11)
                 {
-                    throw new ArgumentException("Длина номера телефона должна быть меньше 11 ");
+                    throw new ArgumentException("Длина номера телефона должна быть меньше 11.");
                 }
 
                 _number = value;
