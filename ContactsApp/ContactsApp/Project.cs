@@ -8,7 +8,7 @@ namespace ContactsApp
 {
     public class Project
     {
-        public List<Contact> Contact = new List<Contact>();
+        public List<Contact> Contacts = new List<Contact>();
         //только одно открытое поле типа List<Contact>
         //никаких методов
     }

@@ -22,7 +22,7 @@ namespace ContactsApp
         /// <param name="data"></param>
         /// <param name="filename"></param>
       
-        public static void SaveToFile(Contact data, string filename)
+        public static void SaveToFile(Project data, string filename)
         {
             File.WriteAllText(_pathToFile, JsonConvert.SerializeObject(data));
         }
@@ -61,9 +61,9 @@ namespace ContactsApp
         //    //метод LoadFromFile
         //}
 
-        public static Contact LoadFromFile(string filename)
+        public static Project LoadFromFile(string filename)
         {
-            Contact contact;
+            Project contact;
             string data;
 
             try
@@ -81,7 +81,7 @@ namespace ContactsApp
                 throw e;
             }
             //считывание
-            contact = JsonConvert.DeserializeObject<Contact>(data);
+            contact = JsonConvert.DeserializeObject<Project>(data);
             
             return contact;
             //никаких полей
