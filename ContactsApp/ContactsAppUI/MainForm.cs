@@ -13,11 +13,13 @@ namespace ContactsAppUI
 {
     public partial class MainForm : Form
     {
+        private List<Contact> _contacts = new List<Contact>();
+
         public MainForm()
         {
             InitializeComponent();
 
-
+        
             //this.Text = "Главное окно программы";
             //this.Size = new Size(400, 250);
 
@@ -56,8 +58,36 @@ namespace ContactsAppUI
             //создать проект и поместить в него два контакта
             //с помощью ProjectManager сохранить проект в какой-нибудь файл
         }
+       
+       
 
         private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ContactsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

@@ -9,7 +9,9 @@ using Newtonsoft.Json;
 namespace ContactsApp
 {
     public class ProjectManager
+    
     {
+         
         /// <summary>
         /// Хранит путь до файла сохранения
         /// </summary>
