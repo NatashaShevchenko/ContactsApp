@@ -31,7 +31,7 @@
             this.ContactsList = new System.Windows.Forms.ListBox();
             this.addContactButton = new System.Windows.Forms.Button();
             this.RemovContactButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.FindTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +55,13 @@
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.BirthdayDayTool = new System.Windows.Forms.DateTimePicker();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ContactsList
@@ -63,38 +69,37 @@
             this.ContactsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ContactsList.FormattingEnabled = true;
             this.ContactsList.ItemHeight = 16;
-            this.ContactsList.Location = new System.Drawing.Point(37, 95);
+            this.ContactsList.Location = new System.Drawing.Point(19, 77);
             this.ContactsList.Name = "ContactsList";
             this.ContactsList.Size = new System.Drawing.Size(218, 292);
             this.ContactsList.TabIndex = 0;
-            this.ContactsList.SelectedIndexChanged += new System.EventHandler(this.ContactsList_SelectedIndexChanged);
             // 
             // addContactButton
             // 
-            this.addContactButton.Location = new System.Drawing.Point(38, 415);
+            this.addContactButton.Location = new System.Drawing.Point(19, 375);
             this.addContactButton.Name = "addContactButton";
             this.addContactButton.Size = new System.Drawing.Size(75, 23);
             this.addContactButton.TabIndex = 1;
             this.addContactButton.Text = "Add";
             this.addContactButton.UseVisualStyleBackColor = true;
-            this.addContactButton.Click += new System.EventHandler(this.button1_Click);
+            this.addContactButton.Click += new System.EventHandler(this.addContactButton_Click);
             // 
             // RemovContactButton
             // 
-            this.RemovContactButton.Location = new System.Drawing.Point(180, 415);
+            this.RemovContactButton.Location = new System.Drawing.Point(162, 375);
             this.RemovContactButton.Name = "RemovContactButton";
             this.RemovContactButton.Size = new System.Drawing.Size(75, 23);
             this.RemovContactButton.TabIndex = 2;
             this.RemovContactButton.Text = "Remove";
             this.RemovContactButton.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // FindTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(92, 48);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 29);
-            this.textBox1.TabIndex = 4;
+            this.FindTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FindTextBox.Location = new System.Drawing.Point(62, 13);
+            this.FindTextBox.Name = "FindTextBox";
+            this.FindTextBox.Size = new System.Drawing.Size(163, 29);
+            this.FindTextBox.TabIndex = 4;
             // 
             // menuStrip1
             // 
@@ -136,19 +141,19 @@
             // addContactToolStripMenuItem
             // 
             this.addContactToolStripMenuItem.Name = "addContactToolStripMenuItem";
-            this.addContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.addContactToolStripMenuItem.Text = "Add Contact";
             // 
             // editContactToolStripMenuItem
             // 
             this.editContactToolStripMenuItem.Name = "editContactToolStripMenuItem";
-            this.editContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.editContactToolStripMenuItem.Text = "Edit Contact";
             // 
             // removeCpntactToolStripMenuItem
             // 
             this.removeCpntactToolStripMenuItem.Name = "removeCpntactToolStripMenuItem";
-            this.removeCpntactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeCpntactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.removeCpntactToolStripMenuItem.Text = "Remove Cpntact";
             // 
             // helpToolStripMenuItem
@@ -169,7 +174,7 @@
             // 
             this.Find.AutoSize = true;
             this.Find.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Find.Location = new System.Drawing.Point(33, 51);
+            this.Find.Location = new System.Drawing.Point(3, 16);
             this.Find.Name = "Find";
             this.Find.Size = new System.Drawing.Size(53, 24);
             this.Find.TabIndex = 3;
@@ -179,7 +184,7 @@
             // 
             this.Surname.AutoSize = true;
             this.Surname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Surname.Location = new System.Drawing.Point(298, 95);
+            this.Surname.Location = new System.Drawing.Point(25, 47);
             this.Surname.Name = "Surname";
             this.Surname.Size = new System.Drawing.Size(64, 18);
             this.Surname.TabIndex = 6;
@@ -189,18 +194,17 @@
             // 
             this.Name1.AutoSize = true;
             this.Name1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Name1.Location = new System.Drawing.Point(298, 125);
+            this.Name1.Location = new System.Drawing.Point(25, 77);
             this.Name1.Name = "Name1";
             this.Name1.Size = new System.Drawing.Size(52, 18);
             this.Name1.TabIndex = 7;
             this.Name1.Text = "Name:";
-            this.Name1.Click += new System.EventHandler(this.label3_Click);
             // 
             // Phone
             // 
             this.Phone.AutoSize = true;
             this.Phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Phone.Location = new System.Drawing.Point(298, 185);
+            this.Phone.Location = new System.Drawing.Point(25, 137);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(55, 18);
             this.Phone.TabIndex = 8;
@@ -210,7 +214,7 @@
             // 
             this.Birthday.AutoSize = true;
             this.Birthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Birthday.Location = new System.Drawing.Point(298, 155);
+            this.Birthday.Location = new System.Drawing.Point(25, 109);
             this.Birthday.Name = "Birthday";
             this.Birthday.Size = new System.Drawing.Size(65, 18);
             this.Birthday.TabIndex = 9;
@@ -220,7 +224,7 @@
             // 
             this.Email.AutoSize = true;
             this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Email.Location = new System.Drawing.Point(298, 215);
+            this.Email.Location = new System.Drawing.Point(25, 167);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(54, 18);
             this.Email.TabIndex = 10;
@@ -230,7 +234,7 @@
             // 
             this.VK.AutoSize = true;
             this.VK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.VK.Location = new System.Drawing.Point(298, 245);
+            this.VK.Location = new System.Drawing.Point(25, 197);
             this.VK.Name = "VK";
             this.VK.Size = new System.Drawing.Size(61, 18);
             this.VK.TabIndex = 11;
@@ -239,7 +243,7 @@
             // SurnameTextBox
             // 
             this.SurnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SurnameTextBox.Location = new System.Drawing.Point(422, 92);
+            this.SurnameTextBox.Location = new System.Drawing.Point(114, 44);
             this.SurnameTextBox.Name = "SurnameTextBox";
             this.SurnameTextBox.Size = new System.Drawing.Size(366, 24);
             this.SurnameTextBox.TabIndex = 12;
@@ -247,7 +251,7 @@
             // NameTextBox
             // 
             this.NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameTextBox.Location = new System.Drawing.Point(422, 122);
+            this.NameTextBox.Location = new System.Drawing.Point(114, 74);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(366, 24);
             this.NameTextBox.TabIndex = 13;
@@ -255,7 +259,7 @@
             // EmailTextBox
             // 
             this.EmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EmailTextBox.Location = new System.Drawing.Point(422, 212);
+            this.EmailTextBox.Location = new System.Drawing.Point(114, 164);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(366, 24);
             this.EmailTextBox.TabIndex = 14;
@@ -263,7 +267,7 @@
             // PhoneTextBox
             // 
             this.PhoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PhoneTextBox.Location = new System.Drawing.Point(422, 182);
+            this.PhoneTextBox.Location = new System.Drawing.Point(114, 134);
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(366, 24);
             this.PhoneTextBox.TabIndex = 15;
@@ -271,7 +275,7 @@
             // VKTextBox
             // 
             this.VKTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.VKTextBox.Location = new System.Drawing.Point(422, 242);
+            this.VKTextBox.Location = new System.Drawing.Point(114, 194);
             this.VKTextBox.Name = "VKTextBox";
             this.VKTextBox.Size = new System.Drawing.Size(366, 24);
             this.VKTextBox.TabIndex = 16;
@@ -279,42 +283,76 @@
             // BirthdayDayTool
             // 
             this.BirthdayDayTool.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BirthdayDayTool.Location = new System.Drawing.Point(422, 152);
-            this.BirthdayDayTool.MaxDate = new System.DateTime(2018, 11, 21, 19, 23, 33, 0);
+            this.BirthdayDayTool.Location = new System.Drawing.Point(114, 104);
+            this.BirthdayDayTool.MaxDate = new System.DateTime(2022, 3, 17, 0, 0, 0, 0);
             this.BirthdayDayTool.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.BirthdayDayTool.Name = "BirthdayDayTool";
             this.BirthdayDayTool.Size = new System.Drawing.Size(200, 24);
             this.BirthdayDayTool.TabIndex = 17;
-            this.BirthdayDayTool.Value = new System.DateTime(2018, 11, 21, 0, 0, 0, 0);
+            this.BirthdayDayTool.Value = new System.DateTime(2018, 11, 29, 0, 0, 0, 0);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Location = new System.Drawing.Point(12, 27);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.AutoScrollMinSize = new System.Drawing.Size(174, 380);
+            this.splitContainer1.Panel1.Controls.Add(this.addContactButton);
+            this.splitContainer1.Panel1.Controls.Add(this.RemovContactButton);
+            this.splitContainer1.Panel1.Controls.Add(this.ContactsList);
+            this.splitContainer1.Panel1.Controls.Add(this.FindTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.Find);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.AutoScrollMinSize = new System.Drawing.Size(136, 30);
+            this.splitContainer1.Panel2.Controls.Add(this.toolStrip1);
+            this.splitContainer1.Panel2.Controls.Add(this.SurnameTextBox);
+            this.splitContainer1.Panel2.Controls.Add(this.Surname);
+            this.splitContainer1.Panel2.Controls.Add(this.Name1);
+            this.splitContainer1.Panel2.Controls.Add(this.Birthday);
+            this.splitContainer1.Panel2.Controls.Add(this.Email);
+            this.splitContainer1.Panel2.Controls.Add(this.Phone);
+            this.splitContainer1.Panel2.Controls.Add(this.VK);
+            this.splitContainer1.Panel2.Controls.Add(this.EmailTextBox);
+            this.splitContainer1.Panel2.Controls.Add(this.VKTextBox);
+            this.splitContainer1.Panel2.Controls.Add(this.BirthdayDayTool);
+            this.splitContainer1.Panel2.Controls.Add(this.PhoneTextBox);
+            this.splitContainer1.Panel2.Controls.Add(this.NameTextBox);
+            this.splitContainer1.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.splitContainer1.Size = new System.Drawing.Size(776, 411);
+            this.splitContainer1.SplitterDistance = 258;
+            this.splitContainer1.TabIndex = 18;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(514, 25);
+            this.toolStrip1.TabIndex = 18;
+            this.toolStrip1.Text = "toolStrip1";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.BirthdayDayTool);
-            this.Controls.Add(this.VKTextBox);
-            this.Controls.Add(this.PhoneTextBox);
-            this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.NameTextBox);
-            this.Controls.Add(this.SurnameTextBox);
-            this.Controls.Add(this.VK);
-            this.Controls.Add(this.Email);
-            this.Controls.Add(this.Birthday);
-            this.Controls.Add(this.Phone);
-            this.Controls.Add(this.Name1);
-            this.Controls.Add(this.Surname);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.Find);
-            this.Controls.Add(this.RemovContactButton);
-            this.Controls.Add(this.addContactButton);
-            this.Controls.Add(this.ContactsList);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "MainForm";
             this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,7 +363,7 @@
         private System.Windows.Forms.ListBox ContactsList;
         private System.Windows.Forms.Button addContactButton;
         private System.Windows.Forms.Button RemovContactButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox FindTextBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
@@ -349,6 +387,8 @@
         private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.DateTimePicker BirthdayDayTool;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
     }
 }
 

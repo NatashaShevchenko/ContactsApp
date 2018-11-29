@@ -13,7 +13,7 @@ namespace ContactsAppUI
 {
     public partial class MainForm : Form
     {
-        private List<Contact> _contacts = new List<Contact>();
+        private List<Contact> _contacts = new List<Contact>();
 
         public MainForm()
         {
@@ -59,38 +59,31 @@ namespace ContactsAppUI
             //с помощью ProjectManager сохранить проект в какой-нибудь файл
         }
        
-       
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+      
 
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void ContactsList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void addContactButton_Click(object sender, EventArgs e)
         {
+            AddEditContactsForm addContact = new AddEditContactsForm();
+            if (addContact.ShowDialog() == DialogResult.OK)
+            {
+            }
+            //Contact newContact = new Contact();
+            //newContact.Name = "Смирнов";
+            //newContact.Email = "u.smirnov@fake.mail";
 
+            //_contacts.Add(newContact);
+            //ContactsList.Items.Add(newContact.Name);
         }
+
+
 
         //Обработчик события нажатия кнопки
         //private void Button_Click(object sender, EventArgs e)
