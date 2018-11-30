@@ -12,6 +12,7 @@ namespace ContactsApp
     /// </summary>
     public class Contact
     {
+        public PhoneNumber Number { get; set; } = new PhoneNumber();
         private string _surname;
         private string _name;
         private DateTime _birthday;

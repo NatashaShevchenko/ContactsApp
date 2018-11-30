@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.OK = new System.Windows.Forms.Button();
             this.BirthdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
@@ -50,6 +51,7 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.OK);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.BirthdayDateTimePicker);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.VKTextBox);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.EmailTextBox);
@@ -62,12 +64,22 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.Birthday);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.Surname);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.Name2);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(552, 207);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(541, 256);
             this.toolStripContainer1.Location = new System.Drawing.Point(12, 12);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(552, 207);
+            this.toolStripContainer1.Size = new System.Drawing.Size(541, 256);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // OK
+            // 
+            this.OK.Location = new System.Drawing.Point(445, 203);
+            this.OK.Name = "OK";
+            this.OK.Size = new System.Drawing.Size(75, 23);
+            this.OK.TabIndex = 12;
+            this.OK.Text = "Добавить";
+            this.OK.UseVisualStyleBackColor = true;
+            this.OK.Click += new System.EventHandler(this.OK_Click);
             // 
             // BirthdayDateTimePicker
             // 
@@ -182,7 +194,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 229);
+            this.ClientSize = new System.Drawing.Size(554, 267);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "AddEditContactsForm";
             this.Text = "Add/Edit Contacts Form";
@@ -209,5 +221,6 @@
         private System.Windows.Forms.TextBox SurnameTextBox;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.DateTimePicker BirthdayDateTimePicker;
+        private System.Windows.Forms.Button OK;
     }
 }

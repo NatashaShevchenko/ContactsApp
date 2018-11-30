@@ -18,12 +18,17 @@ namespace ContactsApp
         // ApplicationData - путь к пользовательской директории
         private static readonly string _pathToFile = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ContactsApp\\ContactsApp.txt";
 
+        public static object GetInstance()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Сохраняет объект проекта в файл
         /// </summary>
         /// <param name="data"></param>
         /// <param name="filename"></param>
-      
+
         public static void SaveToFile(Project data, string filename)
         {
             File.WriteAllText(_pathToFile, JsonConvert.SerializeObject(data));

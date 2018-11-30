@@ -13,13 +13,14 @@ namespace ContactsAppUI
 {
     public partial class MainForm : Form
     {
-        private List<Contact> _contacts = new List<Contact>();
+        private List<Contact> _contacts = new List<Contact>();
+     
 
         public MainForm()
         {
             InitializeComponent();
+          
 
-        
             //this.Text = "Главное окно программы";
             //this.Size = new Size(400, 250);
 
@@ -42,15 +43,17 @@ namespace ContactsAppUI
             contact.Surname = "Shevchenko";
             contact.Name = "Natasha";
             contact.VK = "9876543";
+           // contact.Number = 123;
             contact.Email = "NatashaShevchenko@gmail.com";
             contact.Birthday = new DateTime(1996, 07, 27);
+
             Project project = new Project();
             project.Contacts.Add(contact);
             ProjectManager.SaveToFile(project, "filename");
 
-            //Contact c1 = ProjectManager.LoadFromFile("Filename");
+           // Contact c1 = ProjectManager.LoadFromFile("Filename");
             //Для текстбокса, чтобы выводил день рождения
-            // DateTime t = c1.Birthday;
+             //DateTime t = c1.Birthday;
 
             // DateTime datetime = dateTimePicker1.Value;
 
@@ -58,11 +61,7 @@ namespace ContactsAppUI
             //создать проект и поместить в него два контакта
             //с помощью ProjectManager сохранить проект в какой-нибудь файл
         }
-       
 
-      
-
-   
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -72,34 +71,43 @@ namespace ContactsAppUI
         private void addContactButton_Click(object sender, EventArgs e)
         {
             AddEditContactsForm addContact = new AddEditContactsForm();
-            if (addContact.ShowDialog() == DialogResult.OK)
-            {
-            }
-            //Contact newContact = new Contact();
-            //newContact.Name = "Смирнов";
-            //newContact.Email = "u.smirnov@fake.mail";
+            addContact.ShowDialog(); //чем отличается Show от ShowDialog?
+           
 
-            //_contacts.Add(newContact);
-            //ContactsList.Items.Add(newContact.Name);
+            //if (addContact.ShowDialog() == DialogResult.OK)
+            //{
+            //}
+            // Contact newContact = new Contact();
+            // newContact.Name = "Смирнов";
+            //// newContact.Number = 23456455686;
+            // newContact.Email = "u.smirnov@fake.mail";
+
+            // _contacts.Add(newContact);
+            // ContactsList.Items.Add(newContact.Name);
         }
 
+        private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEditContactsForm addContact = new AddEditContactsForm();
+            addContact.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+                this.Close();
+        }
+
+      
 
 
-        //Обработчик события нажатия кнопки
-        //private void Button_Click(object sender, EventArgs e)
-        //{
-        //   //Здесь пишем код, который должен выполняться
-        //    // каждый раз при нажатии на кнопку.
-        //    this.Text = "Новый заголовок";
-        //}
-
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-
-        //    //Здесь пишем код, который должен выполняться
-        //    // каждый раз при нажатии на кнопку.
-        //   this.Text = "Новый заголовок";
-        //}
+        
     }
 
 }
