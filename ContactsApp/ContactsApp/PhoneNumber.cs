@@ -21,6 +21,7 @@ namespace ContactsApp
             get => _number;
             set
             {
+           
                 if (value.ToString() == string.Empty)
                 {
                     throw new ArgumentNullException("Поле не может быть пустым.");

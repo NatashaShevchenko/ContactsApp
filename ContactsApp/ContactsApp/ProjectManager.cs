@@ -35,38 +35,7 @@ namespace ContactsApp
         }
 
 
-        /// <summary>
-        /// Загружает объект проекта из файла
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
-        //public static Project LoadFromFile(string filename)
-        //{
-        //    Project project;
-        //    string data;
 
-        //    try
-        //    {
-        //        data = File.ReadAllText(_pathToFile);
-        //    }
-
-        //    catch (DirectoryNotFoundException e)
-        //    {
-        //        throw e;
-        //    }
-
-        //    catch (FileNotFoundException e)
-        //    {
-        //        throw e;
-        //    }
-
-        //    project = JsonConvert.DeserializeObject<Project>(data);
-
-        //    return project;
-        //    //никаких полей
-        //    //метод SaveToFile
-        //    //метод LoadFromFile
-        //}
 
         public static Project LoadFromFile(string filename)
         {

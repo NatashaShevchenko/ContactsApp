@@ -11,33 +11,15 @@ using ContactsApp;
 
 namespace ContactsAppUI
 {
-    public partial class MainForm : Form
+    public partial class ContactsApp : Form
     {
-        private List<Contact> _contacts = new List<Contact>();
+        private List<Contact> _contact = new List<Contact>();
      
 
-        public MainForm()
+        public ContactsApp()
         {
             InitializeComponent();
-          
-
-            //this.Text = "Главное окно программы";
-            //this.Size = new Size(400, 250);
-
-            //var button = new Button();
-            //button.Text = "Сменить заголовок окна";
-            //button.Size = new Size(150, 25);
-            //button.Location = new Point(150, 150);
-
-            ////Подписываем кнопку на обработчик
-            //button.Click += Button_Click;
-
-            ////Помещаем кнопку на форму
-            //this.Controls.Add(button);
-
-
-
-
+  
 
             Contact contact = new Contact();
             contact.Surname = "Shevchenko";
@@ -51,15 +33,7 @@ namespace ContactsAppUI
             project.Contacts.Add(contact);
             ProjectManager.SaveToFile(project, "filename");
 
-           // Contact c1 = ProjectManager.LoadFromFile("Filename");
-            //Для текстбокса, чтобы выводил день рождения
-             //DateTime t = c1.Birthday;
-
-            // DateTime datetime = dateTimePicker1.Value;
-
-            //создать один-два контакта
-            //создать проект и поместить в него два контакта
-            //с помощью ProjectManager сохранить проект в какой-нибудь файл
+        
         }
 
 
@@ -71,19 +45,9 @@ namespace ContactsAppUI
         private void addContactButton_Click(object sender, EventArgs e)
         {
             AddEditContactsForm addContact = new AddEditContactsForm();
-            addContact.ShowDialog(); //чем отличается Show от ShowDialog?
+            addContact.ShowDialog(); 
+
            
-
-            //if (addContact.ShowDialog() == DialogResult.OK)
-            //{
-            //}
-            // Contact newContact = new Contact();
-            // newContact.Name = "Смирнов";
-            //// newContact.Number = 23456455686;
-            // newContact.Email = "u.smirnov@fake.mail";
-
-            // _contacts.Add(newContact);
-            // ContactsList.Items.Add(newContact.Name);
         }
 
         private void addContactToolStripMenuItem_Click(object sender, EventArgs e)
@@ -104,10 +68,38 @@ namespace ContactsAppUI
                 this.Close();
         }
 
-      
-
-
         
+
+        /// < summary >
+        /// Кнопка удаления контакта
+        /// </ summary >
+        /// < param  name = " sender " > </ param >
+        /// < param  name = " e " > </ param >
+        private void DeleteContactButton_Click(object sender, EventArgs e)
+        {
+            int index = ContactsList.SelectedIndices[0];
+            _contact.RemoveAt(index);
+           //ContactsList.Items[index].Remove();
+
+        }
+
+        /// <summary>
+        /// Вывод выбранного контакта для просмотра
+        /// </summary>
+        /// < param  name = " sender " > </ param >
+        /// < param  name = " e " > </ param >
+        private void ContactsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ContactsList.SelectedIndices.Count != 0)
+            {
+                SurnameTextBox.Text = _contact[ContactsList.SelectedIndices[0]].Surname;
+                NameTextBox.Text = _contact[ContactsList.SelectedIndices[0]].Name;
+                BirthdayDayTool.Value = _contact[ContactsList.SelectedIndices[0]].Birthday;
+                PhoneTextBox.Text = Convert.ToString(_contact[ContactsList.SelectedIndices[0]].Number);
+                EmailTextBox.Text = _contact[ContactsList.SelectedIndices[0]].Email;
+                VKTextBox.Text = _contact[ContactsList.SelectedIndices[0]].VK;
+            }
+        }
     }
 
 }
