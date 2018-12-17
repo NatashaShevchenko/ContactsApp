@@ -9,60 +9,60 @@ using Newtonsoft.Json;
 namespace ContactsApp
 {
     public class ProjectManager
-    
     {
-         
         /// <summary>
-        /// Хранит путь до файла сохранения
+        /// Сериалайзер.
         /// </summary>
-        // ApplicationData - путь к пользовательской директории
-        private static readonly string _pathToFile = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\ContactsApp\\ContactsApp.txt";
-
-        public static object GetInstance()
-        {
-            throw new NotImplementedException();
-        }
+        private static readonly JsonSerializer JsonSerializer;
 
         /// <summary>
-        /// Сохраняет объект проекта в файл
+        /// Путь к файлу.
         /// </summary>
-        /// <param name="data"></param>
-        /// <param name="filename"></param>
+        private readonly string _pathToFile;
 
-        public static void SaveToFile(Project data, string filename)
+        /// <summary>
+        /// Статический конструктор.
+        /// </summary>
+        static ProjectManager()
         {
-            File.WriteAllText(_pathToFile, JsonConvert.SerializeObject(data));
+            JsonSerializer = JsonSerializer.Create();
+            JsonSerializer.Formatting = Formatting.Indented;
         }
 
-
-
-
-        public static Project LoadFromFile(string filename)
+        /// <summary>
+        /// Конструктор, устанавливающий путь к файлу.
+        /// </summary>
+        /// <param name="pathToFile">Путь к файлу.</param>
+        public ProjectManager(string pathToFile)
         {
-            Project contact;
-            string data;
-
-            try
-            {
-                data = File.ReadAllText(_pathToFile);
-            }
-            //нет папки
-            catch (DirectoryNotFoundException e)
-            {
-                throw e;
-            }
-            //нет файла
-            catch (FileNotFoundException e)
-            {
-                throw e;
-            }
-            //считывание
-            contact = JsonConvert.DeserializeObject<Project>(data);
-            
-            return contact;
-            //никаких полей
-            //метод SaveToFile
-            //метод LoadFromFile
+            _pathToFile = pathToFile;
         }
+
+        /// <summary>
+        /// Cохраняет проект в файл.
+        /// </summary>
+        /// <param name="project">Проект.</param>
+        public void SaveToFile(Project project)
+        {
+            using (var streamWriter = new StreamWriter(_pathToFile))
+            using (var jsonWriter = new JsonTextWriter(streamWriter))
+            {
+                JsonSerializer.Serialize(jsonWriter, project);
+            }
+        }
+
+        /// <summary>
+        /// Загружает проект из файла.
+        /// </summary>
+        /// <returns>Проект.</returns>
+        public Project LoadFromFile()
+        {
+            using (var streamReader = new StreamReader(_pathToFile))
+            using (var jsonReader = new JsonTextReader(streamReader))
+            {
+                return JsonSerializer.Deserialize<Project>(jsonReader);
+            }
+        }
+
     }
-}
+    }

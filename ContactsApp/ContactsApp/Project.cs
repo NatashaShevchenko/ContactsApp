@@ -11,5 +11,6 @@ namespace ContactsApp
         public List<Contact> Contacts = new List<Contact>();
         //только одно открытое поле типа List<Contact>
         //никаких методов
+
     }
 }

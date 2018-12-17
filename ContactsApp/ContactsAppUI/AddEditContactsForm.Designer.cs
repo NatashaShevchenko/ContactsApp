@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -41,14 +42,17 @@
             this.VK = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.SurnameTextBox = new System.Windows.Forms.TextBox();
-            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.VKTextBox = new System.Windows.Forms.TextBox();
             this.BirthdayDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.OK = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.PhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // BottomToolStripPanel
@@ -85,7 +89,7 @@
             // 
             // ContentPanel
             // 
-            this.ContentPanel.Size = new System.Drawing.Size(541, 233);
+            this.ContentPanel.Size = new System.Drawing.Size(374, 210);
             // 
             // Name2
             // 
@@ -154,7 +158,7 @@
             this.NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameTextBox.Location = new System.Drawing.Point(81, 18);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(289, 24);
+            this.NameTextBox.Size = new System.Drawing.Size(373, 24);
             this.NameTextBox.TabIndex = 6;
             // 
             // SurnameTextBox
@@ -164,18 +168,8 @@
             this.SurnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SurnameTextBox.Location = new System.Drawing.Point(81, 48);
             this.SurnameTextBox.Name = "SurnameTextBox";
-            this.SurnameTextBox.Size = new System.Drawing.Size(289, 24);
+            this.SurnameTextBox.Size = new System.Drawing.Size(373, 24);
             this.SurnameTextBox.TabIndex = 7;
-            // 
-            // PhoneTextBox
-            // 
-            this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PhoneTextBox.Location = new System.Drawing.Point(81, 108);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(289, 24);
-            this.PhoneTextBox.TabIndex = 8;
             // 
             // EmailTextBox
             // 
@@ -184,7 +178,7 @@
             this.EmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EmailTextBox.Location = new System.Drawing.Point(81, 138);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(289, 24);
+            this.EmailTextBox.Size = new System.Drawing.Size(373, 24);
             this.EmailTextBox.TabIndex = 9;
             // 
             // VKTextBox
@@ -194,7 +188,7 @@
             this.VKTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.VKTextBox.Location = new System.Drawing.Point(81, 168);
             this.VKTextBox.Name = "VKTextBox";
-            this.VKTextBox.Size = new System.Drawing.Size(289, 24);
+            this.VKTextBox.Size = new System.Drawing.Size(373, 24);
             this.VKTextBox.TabIndex = 10;
             // 
             // BirthdayDateTimePicker
@@ -205,19 +199,30 @@
             this.BirthdayDateTimePicker.Location = new System.Drawing.Point(81, 78);
             this.BirthdayDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.BirthdayDateTimePicker.Name = "BirthdayDateTimePicker";
-            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(190, 24);
+            this.BirthdayDateTimePicker.Size = new System.Drawing.Size(373, 24);
             this.BirthdayDateTimePicker.TabIndex = 11;
             // 
             // OK
             // 
             this.OK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OK.Location = new System.Drawing.Point(295, 198);
+            this.OK.Location = new System.Drawing.Point(303, 200);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(75, 23);
             this.OK.TabIndex = 12;
             this.OK.Text = "OK";
             this.OK.UseVisualStyleBackColor = true;
             this.OK.Click += new System.EventHandler(this.OK_Click);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.Location = new System.Drawing.Point(397, 200);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton.TabIndex = 13;
+            this.CloseButton.Text = "Close";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.Close_Click);
             // 
             // toolStripContainer1
             // 
@@ -227,11 +232,12 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.PhoneMaskedTextBox);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.CloseButton);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.OK);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.BirthdayDateTimePicker);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.VKTextBox);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.EmailTextBox);
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.PhoneTextBox);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.SurnameTextBox);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.NameTextBox);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.VK);
@@ -240,18 +246,31 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.Birthday);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.Surname);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.Name2);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(374, 227);
-            this.toolStripContainer1.Location = new System.Drawing.Point(3, 12);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(475, 226);
+            this.toolStripContainer1.Location = new System.Drawing.Point(12, 12);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(374, 227);
+            this.toolStripContainer1.Size = new System.Drawing.Size(475, 251);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // PhoneMaskedTextBox
+            // 
+            this.PhoneMaskedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PhoneMaskedTextBox.Location = new System.Drawing.Point(81, 108);
+            this.PhoneMaskedTextBox.Mask = "+7 (999) 000-0000";
+            this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
+            this.PhoneMaskedTextBox.Size = new System.Drawing.Size(373, 24);
+            this.PhoneMaskedTextBox.TabIndex = 14;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // AddEditContactsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 240);
+            this.ClientSize = new System.Drawing.Size(499, 275);
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "AddEditContactsForm";
             this.Text = "Add/Edit Contacts Form";
@@ -259,6 +278,7 @@
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,11 +298,13 @@
         private System.Windows.Forms.Label VK;
         private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.TextBox SurnameTextBox;
-        private System.Windows.Forms.TextBox PhoneTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox VKTextBox;
         private System.Windows.Forms.DateTimePicker BirthdayDateTimePicker;
         private System.Windows.Forms.Button OK;
+        private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.MaskedTextBox PhoneMaskedTextBox;
     }
 }

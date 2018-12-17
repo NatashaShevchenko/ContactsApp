@@ -100,6 +100,7 @@
             this.RemovContactButton.Size = new System.Drawing.Size(30, 30);
             this.RemovContactButton.TabIndex = 2;
             this.RemovContactButton.UseVisualStyleBackColor = true;
+            this.RemovContactButton.Click += new System.EventHandler(this.RemovContactButton_Click);
             // 
             // FindTextBox
             // 
@@ -135,7 +136,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -152,21 +153,23 @@
             // addContactToolStripMenuItem
             // 
             this.addContactToolStripMenuItem.Name = "addContactToolStripMenuItem";
-            this.addContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.addContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addContactToolStripMenuItem.Text = "Add Contact";
             this.addContactToolStripMenuItem.Click += new System.EventHandler(this.addContactToolStripMenuItem_Click);
             // 
             // editContactToolStripMenuItem
             // 
             this.editContactToolStripMenuItem.Name = "editContactToolStripMenuItem";
-            this.editContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.editContactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editContactToolStripMenuItem.Text = "Edit Contact";
+            this.editContactToolStripMenuItem.Click += new System.EventHandler(this.editContactToolStripMenuItem_Click);
             // 
             // removeCpntactToolStripMenuItem
             // 
             this.removeCpntactToolStripMenuItem.Name = "removeCpntactToolStripMenuItem";
-            this.removeCpntactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.removeCpntactToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeCpntactToolStripMenuItem.Text = "Remove Contact";
+            this.removeCpntactToolStripMenuItem.Click += new System.EventHandler(this.removeCpntactToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

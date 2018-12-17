@@ -27,14 +27,17 @@ namespace ContactsApp
             get { return _surname; }
             set
             {
-                if (value.Length > 50)
+                if (value == string.Empty)
                 {
-                    throw new ArgumentException("Фамилия должна быть меньше 50 символов.");
+                    throw new ArgumentNullException("Поле Фамилии не может быть пустым");
+                }
+                else if (value.Length > 50)
+                {
+                    throw new ArgumentException(
+                        "Фамилия должна быть короче 50-ти символов");
                 }
                 else
-                {
-                    _surname = value;
-                }
+                    _surname = char.ToUpper(value[0]) + value.Substring(1);
             }
         }
         /// <summary>
@@ -42,16 +45,21 @@ namespace ContactsApp
         /// </summary>
         public string Name
         {
-            get => _name;
+            get { return _name; }
             set
             {
                 
-                if (value.Length > 50)
+                if (value == string.Empty)
                 {
-                    throw new ArgumentException("Имя должно быть меньше 50 символов");
+                    throw new ArgumentNullException("Поле имени не может быть пустым");
+                }
+                else if (value.Length > 50)
+                {
+                    throw new ArgumentException(
+                        "Имя должно быть короче 50-ти символов");
                 }
                 else
-                    _name = value;
+                    _name = char.ToUpper(value[0]) + value.Substring(1);
             }
         }
 
@@ -63,12 +71,15 @@ namespace ContactsApp
             get => _email;
             set
             {
-                if (value.Length > 50)
+                if (value != null)
                 {
-                    throw new ArgumentException("Длина Email должна быть менее 50");
+                    if (value.Length > 50)
+                    {
+                        throw new ArgumentException("E-mail не может быть больше 50 символов");
+                    }
+                    else
+                        _email = value;
                 }
-                else
-                    _email = value;
             }
         }
         /// <summary>
@@ -79,12 +90,15 @@ namespace ContactsApp
             get => _vk;
             set
             {
-                if (value.Length > 15)
+                if (value != null)
                 {
-                    throw new ArgumentException("Длина id vk должна быть менее 15");
+                    if (value.Length > 15)
+                    {
+                        throw new ArgumentException("ID VK должно быть короче 15 символов");
+                    }
+                    else
+                        _vk = value;
                 }
-                else
-                    _vk = value;
             }
         }
         /// <summary>
@@ -97,15 +111,34 @@ namespace ContactsApp
             {
                 if (value > DateTime.Today)
                 {
-                    throw new ArgumentException("Дата не должна быть больше " + DateTime.Today.ToShortDateString() + ", а была " + value.Date.ToShortDateString());
+                    throw new ArgumentException("Дата рождения не может быть раньше текущего времени, а была" + value.Date.ToLongDateString());
+                }
+                else if (value.Year < 1900)
+                {
+                    throw new IndexOutOfRangeException("Дата рождения не может быть ранее 1900-го года");
                 }
                 else
                     _birthday = value;
             }
         }
 
+        /// <summary>
+        /// Клонирование объекта.
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            var newContact = new Contact();
 
+            newContact.Name = Name;
+            newContact.Surname = Surname;
+            newContact.Birthday = Birthday;
+            newContact.Email = Email;
+            newContact.VK = VK;
+            newContact.Number.Number = Number.Number;
 
+            return newContact;
+        }
 
     }
 }
