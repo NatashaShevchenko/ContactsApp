@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,17 +17,23 @@ namespace ContactsAppUI
         /// <summary>
         /// Объявление нового экземпляра списка контактов
         /// </summary>
-        private Project _project;
+        //private Project _project;
         /// <summary>
         /// Экземпляр списка контактов после поиска
         /// </summary>
-        private readonly Project _projectForFind = new Project();
+        private readonly Project _project/* = new Project()*/;
+
+        private readonly ProjectManager _projectManager;
 
         public ContactsApp()
         {
+            _projectManager =
+             new ProjectManager(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                "ContactApp.contacts"));
             InitializeComponent();
+            var _project = _projectManager.LoadFromFile();
 
-            _project = new Project();
+            //_project = new Project();
         }
 
         /// <summary>
@@ -127,7 +134,6 @@ namespace ContactsAppUI
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             this.Close();
         }
 
@@ -182,7 +188,10 @@ namespace ContactsAppUI
 
         }
 
-
+        private void ContactsApp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _projectManager.SaveToFile(_project);
+        }
     }
 
 }
