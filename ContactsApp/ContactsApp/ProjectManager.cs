@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using Newtonsoft.Json;
 
 namespace ContactsApp
@@ -11,17 +6,17 @@ namespace ContactsApp
     public class ProjectManager
     {
         /// <summary>
-        /// Сериалайзер.
+        ///     Сериалайзер.
         /// </summary>
         private static readonly JsonSerializer JsonSerializer;
 
         /// <summary>
-        /// Путь к файлу.
+        ///     Путь к файлу.
         /// </summary>
         private readonly string _pathToFile;
 
         /// <summary>
-        /// Статический конструктор.
+        ///     Статический конструктор.
         /// </summary>
         static ProjectManager()
         {
@@ -30,7 +25,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Конструктор, устанавливающий путь к файлу.
+        ///     Конструктор, устанавливающий путь к файлу.
         /// </summary>
         /// <param name="pathToFile">Путь к файлу.</param>
         public ProjectManager(string pathToFile)
@@ -39,7 +34,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Cохраняет проект в файл.
+        ///     Cохраняет проект в файл.
         /// </summary>
         /// <param name="project">Проект.</param>
         public void SaveToFile(Project project)
@@ -52,7 +47,7 @@ namespace ContactsApp
         }
 
         /// <summary>
-        /// Загружает проект из файла.
+        ///     Загружает проект из файла.
         /// </summary>
         /// <returns>Проект.</returns>
         public Project LoadFromFile()
@@ -64,9 +59,14 @@ namespace ContactsApp
             using (var streamReader = new StreamReader(_pathToFile))
             using (var jsonReader = new JsonTextReader(streamReader))
             {
-                return JsonSerializer.Deserialize<Project>(jsonReader);
+                var project = JsonSerializer.Deserialize<Project>(jsonReader);
+                return project;
             }
         }
 
+        public bool IsExistProjectFile()
+        {
+            return File.Exists(_pathToFile);
+        }
     }
-    }
+}

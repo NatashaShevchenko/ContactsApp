@@ -21,19 +21,26 @@ namespace ContactsAppUI
         /// <summary>
         /// Экземпляр списка контактов после поиска
         /// </summary>
-        private readonly Project _project/* = new Project()*/;
+        private readonly Project _project;
 
         private readonly ProjectManager _projectManager;
 
         public ContactsApp()
         {
-            _projectManager =
-             new ProjectManager(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
-                "ContactApp.contacts"));
             InitializeComponent();
-            var _project = _projectManager.LoadFromFile();
 
-            //_project = new Project();
+            _projectManager = new ProjectManager(Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                "ContactApp.contacts"));
+            if (_projectManager.IsExistProjectFile())
+            {
+                _project = _projectManager.LoadFromFile();
+                ShowListBoxContact();
+            }
+            else
+            {
+                _project = new Project();
+            }
         }
 
         /// <summary>
