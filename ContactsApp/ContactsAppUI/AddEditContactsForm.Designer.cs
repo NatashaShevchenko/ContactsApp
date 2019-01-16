@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -49,10 +48,8 @@
             this.CloseButton = new System.Windows.Forms.Button();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.PhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // BottomToolStripPanel
@@ -262,10 +259,6 @@
             this.PhoneMaskedTextBox.Size = new System.Drawing.Size(373, 24);
             this.PhoneMaskedTextBox.TabIndex = 14;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // AddEditContactsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,7 +271,6 @@
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -304,7 +296,6 @@
         private System.Windows.Forms.Button OK;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.MaskedTextBox PhoneMaskedTextBox;
     }
 }

@@ -20,6 +20,10 @@ namespace ContactsAppUI
         {
             InitializeComponent();
             NewContact = new Contact();
+            ShowIcon = false;
+            ShowInTaskbar = false;
+
+
         }
 
         public Contact NewContact
@@ -31,20 +35,20 @@ namespace ContactsAppUI
                 EnterData();
             }
         }
-        /// <summary>
-        /// Флаг верности ввода имени
-        /// </summary>
-        private bool _isNameCorrect = false;
+        ///// <summary>
+        ///// Флаг верности ввода имени
+        ///// </summary>
+        //private bool _isNameCorrect = false;
 
-        /// <summary>
-        /// Флаг верности ввода даты
-        /// </summary>
-        private bool _isDataCorrect = false;
+        ///// <summary>
+        ///// Флаг верности ввода даты
+        ///// </summary>
+        //private bool _isDataCorrect = false;
 
-        /// <summary>
-        /// Флаг верности ввода номера телефона
-        /// </summary>
-        private bool _isPhoneCorrect = false;
+        ///// <summary>
+        ///// Флаг верности ввода номера телефона
+        ///// </summary>
+        //private bool _isPhoneCorrect = false;
 
 
         
@@ -143,15 +147,6 @@ namespace ContactsAppUI
             this.Close();
         }
 
-      
-
-       
-
-        private void BirthdayDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-           
-        }
-       
     }
         
     

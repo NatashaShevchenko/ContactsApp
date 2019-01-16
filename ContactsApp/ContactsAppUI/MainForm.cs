@@ -15,19 +15,16 @@ namespace ContactsAppUI
     public partial class ContactsApp : Form
     {
         /// <summary>
-        /// Объявление нового экземпляра списка контактов
-        /// </summary>
-        //private Project _project;
-        /// <summary>
         /// Экземпляр списка контактов после поиска
         /// </summary>
-        private readonly Project _project;
+       private readonly Project _project;
 
         private readonly ProjectManager _projectManager;
 
         public ContactsApp()
         {
             InitializeComponent();
+          
 
             _projectManager = new ProjectManager(Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),

@@ -18,6 +18,8 @@ namespace ContactsApp
         private DateTime _birthday;
         private string _email;
         private string _vk;
+       
+
 
         /// <summary>
         /// Задает и возвращает фамилию контакта
