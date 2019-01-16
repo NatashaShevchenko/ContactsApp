@@ -33,7 +33,6 @@ namespace ContactsApp.UnitTest
         {
             _contact.Surname = expected;
             var actual = _contact.Surname;
-
             Assert.AreEqual(expected, actual, "Геттер возвращает неправильную фамилию");
         }
 
@@ -57,8 +56,8 @@ namespace ContactsApp.UnitTest
         /// </summary>
         /// <param name="expected"></param>
         /// <param name="message"></param>
-        [TestCase("2000.01.01", "Выполняется, если присвоение даты происходит коректно",
-            TestName = "Позитивый тесте геттера Birhday")]
+        [TestCase("1996.01.01", "Выполняется, если присвоение даты происходит коректно",
+            TestName = "Позитивый тесте геттера Birthday")]
         public void TestDateGet_CorrectValue(DateTime expected, string message)
         {
             _contact.Birthday = expected;
@@ -100,7 +99,7 @@ namespace ContactsApp.UnitTest
         /// </summary>
         /// <param name="expected"></param>
         /// <param name="message"></param>
-        [TestCase(79528854134, "Выполняется если номер телефона удачно присваевается",
+        [TestCase(89609740808, "Выполняется если номер телефона удачно присваевается",
             TestName = "Позитивный тест метода Set Number")]
         public void TestPhoneNumberGet_CorrectValue(long expected, string message)
         {
@@ -123,7 +122,7 @@ namespace ContactsApp.UnitTest
             TestName = "Присвоение пустой строки в качестве фамилии")]
         public void TestSurnameSet_ArgumentException(string wrongSurname, Type expectedException, string message)
         {
-            NUnit.Framework.Assert.Throws(expectedException, () => { _contact.Surname = wrongSurname; }, message);
+            Assert.Throws(expectedException, () => { _contact.Surname = wrongSurname; }, message);
         }
 
         /// <summary>
@@ -139,7 +138,7 @@ namespace ContactsApp.UnitTest
             TestName = "Присвоение пустой строки в качестве имени")]
         public void TestNameSet_ArgumentException(string wrongName, Type expectedException, string message)
         {
-            NUnit.Framework.Assert.Throws(expectedException, () => { _contact.Name = wrongName; }, message);
+            Assert.Throws(expectedException, () => { _contact.Name = wrongName; }, message);
         }
 
         /// <summary>
@@ -151,7 +150,7 @@ namespace ContactsApp.UnitTest
                 TestName = "Ожидается исключение, если дата больше нынешней даты")]
         public void TestDateSet_ArgimenExpected(DateTime wrongDate, Type expectedException, string message)
         {
-            NUnit.Framework.Assert.Throws(expectedException, () => { _contact.Birthday = wrongDate; }, message);
+            Assert.Throws(expectedException, () => { _contact.Birthday = wrongDate; }, message);
         }
 
 
@@ -166,23 +165,20 @@ namespace ContactsApp.UnitTest
             , TestName = "Присвоение неправильного почтового ящика больше 50 символов")]
         public void TestEmailSet_ArgumentNullException(string wrongEmail, Type expectedException, string message)
         {
-            NUnit.Framework.Assert.Throws(expectedException, () => { _contact.Email = wrongEmail; }, message);
+            Assert.Throws(expectedException, () => { _contact.Email = wrongEmail; }, message);
 
         }
 
         /// <summary>
         /// Тесты Set VK
         /// </summary>
-        /// <param name="wrongVkId"></param>
-        /// <param name="expectedException"></param>
-        /// <param name="message"></param>
-        [TestCase("id@sdfsfddfkslfdsfsdfbdfgredsfdfsdfdc", typeof(ArgumentException),
-            "Должно возникать исключение, если id Вконтакте длиннее 15 символов"
-            , TestName = "Присвоение неправильного id Вконтакте больше 15 символов")]
+        [TestCase("1234567890123456", typeof(ArgumentException),
+            "Должно возникать исключение, если id Вконтакте длиннее 15 символов",
+             TestName = "Присвоение неправильного id Вконтакте больше 15 символов")]
        
         public void TestVkSet_ArgumentNullException(string wrongVK, Type expectedException, string message)
         {
-            NUnit.Framework.Assert.Throws(expectedException, () => { _contact.VK = wrongVK; }, message);
+            Assert.Throws(expectedException, () => { _contact.VK = wrongVK; }, message);
         }
 
         /// <summary>
@@ -191,13 +187,14 @@ namespace ContactsApp.UnitTest
         /// <param name="wrongNumber"></param>
         /// <param name="expectedException"></param>
         /// <param name="message"></param>
-        [TestCase("", typeof(ArgumentNullException), "Должно возникнуть исключение, если номер телефона - пустая строка",
-           TestName = "Присвоение пустой строки в качестве телефона")]
-        [TestCase(7941234567888999, typeof(ArgumentException), "Должно возникнуть исключение, если длинна номера телефона не 11 символов",
-            TestName = "Присвоение неправильного номера телефона - длинна номера не 11 символов")]
+        [TestCase("", typeof(ArgumentNullException), "Должно возникнуть исключение, если номер телефона пуст",
+            TestName = "Присвоение неправильного номера телефона - номер телефона пуст")]
+        [TestCase(79412355565557, typeof(ArgumentException), "Должно возникнуть исключение, если длинна номера телефона больше 11 символов",
+                TestName = "Присвоение неправильного номера телефона - длинна номера больше 11 символов")]
         public void TestPhoneNumberSet_FormatExpected(long wrongNumber, Type expectedException, string message)
         {
-            NUnit.Framework.Assert.Throws(expectedException, () => { _number.Number = wrongNumber; }, message);
+          Assert.Throws(expectedException, () => { _number.Number = wrongNumber; }, message);
         }
+
     }
 }
