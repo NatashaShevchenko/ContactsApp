@@ -2,6 +2,8 @@
 using NUnit.Framework;
 using ContactsApp;
 
+
+
 namespace ContactsApp.UnitTest
 {
     /// <summary>

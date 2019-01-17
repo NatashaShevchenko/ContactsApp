@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using ContactsApp;
 using System.Collections.Generic;
@@ -7,14 +6,14 @@ using System.Collections.Generic;
 namespace ContactsApp.UnitTest
 {
     /// <summary>
-    /// Тесты для ProjectManager.
+    /// Тесты для Project.
     /// </summary>
     [TestFixture]
     public class ProjectTest
     {
        
-             [Test(Description = "Проверка добавления контакт в Project")]
-        public void TestAddNoteToProject()
+         [Test(Description = "Проверка добавления контакт в Project")]
+        public void TestAddContactToProject()
         {
             var contact = new Contact();
             contact.Name = "Natasha";
@@ -27,10 +26,10 @@ namespace ContactsApp.UnitTest
             var project = new Project();
             project.Contacts.Add(contact);
             var actual = project.Contacts;
-            NUnit.Framework.Assert.AreEqual(project.Contacts, actual, "");
+            Assert.AreEqual(project.Contacts, actual, "");
         }
 
-        [Test(Description = "Проверка списка заметок в Project")]
+        [Test(Description = "Проверка списка контактов в Project")]
         public void TestListContactToProject()
         {
             var contact = new List<Contact>
@@ -41,7 +40,7 @@ namespace ContactsApp.UnitTest
             };
 
             //var project = new Project(contact);
-            //Assert.AreEqual(project.Notes, notes, "");
+            //NUnit.Framework.Assert.AreEqual(project.Contacts, contact, "");
         }
     }
 }

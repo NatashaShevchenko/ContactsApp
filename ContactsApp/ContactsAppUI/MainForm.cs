@@ -196,6 +196,49 @@ namespace ContactsAppUI
         {
             _projectManager.SaveToFile(_project);
         }
+
+        ///// <summary>
+        ///// Метод поиска индекса контакта в соответствии с контактом из поиска
+        ///// </summary>
+        ///// <param name="contacts">Список контактов</param>
+        ///// <param name="findedContacts">Список контактов после поиска</param>
+        ///// <returns>Индекс контакта в списке</returns>
+        //private int GetContactIndex(List<Contact> contacts, List<Contact> findedContacts)
+        //{
+        //    int index = 0;
+
+        //    foreach (var contact in contacts)
+        //    {
+        //        if (contact == findedContacts[ContactsList.SelectedIndices[0]])
+        //        {
+        //            return index;
+        //        }
+
+        //        index++;
+        //    }
+
+        //    return -1;
+        //}
+
+        /////// <summary>
+        /////// Метод вывода контаков, у которых сегодня день рожденья
+        /////// </summary>
+        //private void CheckTodayBirthday()
+        //{
+        //    BirthdayPanel.Visible = false;
+        //    BirthdayText.Visible = false;
+        //    BirthdayShowLabel.Text = String.Empty;
+        //    List<Contact> birthdayList = ProjectManager.GetInstance().Project.ShowBirthdayList(DateTime.Today);
+        //    if (birthdayList.Count != 0)
+        //    {
+        //        BirthdayPanel.Visible = true;
+        //        BirthdayText.Visible = true;
+        //        foreach (var contact in birthdayList)
+        //        {
+        //            BirthdayShowLabel.Text += contact.Surname + " " + contact.Name + "; ";
+        //        }
+        //    }
+        //}
     }
 
 }

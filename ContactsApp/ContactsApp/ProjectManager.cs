@@ -52,10 +52,7 @@ namespace ContactsApp
         /// <returns>Проект.</returns>
         public Project LoadFromFile()
         {
-            //if (!File.Exists(_pathToFile))
-            //{
-            //    File.Create(_pathToFile);
-            //}
+          
             using (var streamReader = new StreamReader(_pathToFile))
             using (var jsonReader = new JsonTextReader(streamReader))
             {
