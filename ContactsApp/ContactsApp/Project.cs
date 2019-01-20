@@ -42,12 +42,13 @@ namespace ContactsApp
         /// <returns>Найденный список контактов</returns>
         public List<Contact> FindContacts(List<Contact> contactsList, string substring)
         {
+            substring = substring.ToLower();
             List<Contact> findedContacts = new List<Contact>();
             foreach (var contact in contactsList)
             {
-                if (contact.Surname.StartsWith(substring) ||
-                    contact.Name.StartsWith(substring) ||
-                    contact.Number.Number.ToString().StartsWith(substring))
+                if (contact.Surname.ToLower().Contains(substring) ||
+                    contact.Name.ToLower().Contains(substring) ||
+                    contact.Number.Number.ToString().ToLower().Contains(substring))
                 {
                     findedContacts.Add(contact);
                 }

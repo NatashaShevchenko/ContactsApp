@@ -79,7 +79,7 @@
             this.ContactsList.Name = "ContactsList";
             this.ContactsList.Size = new System.Drawing.Size(184, 324);
             this.ContactsList.TabIndex = 0;
-            this.ContactsList.SelectedIndexChanged += new System.EventHandler(this.ContactsList_SelectedIndexChanged);
+            this.ContactsList.SelectedValueChanged += new System.EventHandler(this.ContactsList_SelectedValueChanged);
             // 
             // addContactButton
             // 

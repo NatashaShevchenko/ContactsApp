@@ -18,7 +18,7 @@ namespace ContactsApp.UnitTest
             var contact = new Contact();
             contact.Name = "Natasha";
             contact.Surname = "Shevchenko";
-            contact.Birthday = new DateTime(2000, 01, 01); ;
+            contact.Birthday = new DateTime(2000, 01, 01);
             //contact.Number = 9999999999;
             contact.VK = "3456533";
             contact.Email = "Natasha@gmail.com";

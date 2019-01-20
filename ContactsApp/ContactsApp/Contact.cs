@@ -131,17 +131,23 @@ namespace ContactsApp
         /// <returns></returns>
         public object Clone()
         {
-            var newContact = new Contact();
+            var newContact = new Contact
+            {
+                Name = Name,
+                Surname = Surname,
+                Birthday = Birthday,
+                Email = Email,
+                VK = VK,
+                Number = {Number = Number.Number}
+            };
 
-            newContact.Name = Name;
-            newContact.Surname = Surname;
-            newContact.Birthday = Birthday;
-            newContact.Email = Email;
-            newContact.VK = VK;
-            newContact.Number.Number = Number.Number;
 
             return newContact;
         }
 
+        public override string ToString()
+        {
+            return $"{Name} {Surname}";
+        }
     }
 }
