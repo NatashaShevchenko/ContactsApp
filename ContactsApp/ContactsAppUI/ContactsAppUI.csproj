@@ -58,6 +58,12 @@
     <Compile Include="AddEditContactsForm.Designer.cs">
       <DependentUpon>AddEditContactsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BirthDayUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BirthDayUserControl.Designer.cs">
+      <DependentUpon>BirthDayUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,22 +78,26 @@
     <EmbeddedResource Include="AddEditContactsForm.resx">
       <DependentUpon>AddEditContactsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BirthDayUserControl.resx">
+      <DependentUpon>BirthDayUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -102,6 +112,9 @@
       <Project>{9c3a05f8-af9a-468a-afae-dd549b23f894}</Project>
       <Name>ContactsApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inf_icon %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
