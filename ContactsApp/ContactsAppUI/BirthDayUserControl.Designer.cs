@@ -38,16 +38,16 @@
             // 
             this.pictureBox1.Image = global::ContactsAppUI.Properties.Resources.inf_icon__2_;
             this.pictureBox1.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(172, 126);
+            this.pictureBox1.Size = new System.Drawing.Size(126, 126);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(187, 28);
+            this.label1.Location = new System.Drawing.Point(140, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 24);
@@ -57,7 +57,7 @@
             // birthdayContactsLabel
             // 
             this.birthdayContactsLabel.AutoSize = true;
-            this.birthdayContactsLabel.Location = new System.Drawing.Point(187, 75);
+            this.birthdayContactsLabel.Location = new System.Drawing.Point(140, 75);
             this.birthdayContactsLabel.Name = "birthdayContactsLabel";
             this.birthdayContactsLabel.Size = new System.Drawing.Size(0, 24);
             this.birthdayContactsLabel.TabIndex = 2;
@@ -71,9 +71,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BirthDayUserControl";
-            this.Size = new System.Drawing.Size(476, 141);
+            this.Size = new System.Drawing.Size(378, 141);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

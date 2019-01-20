@@ -39,7 +39,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeCpntactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeContactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Find = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.DeleteContactButton = new System.Windows.Forms.Button();
             this.PhoneTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.BirthDayUserControl = new BirthDayUserControl();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -146,7 +147,7 @@
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addContactToolStripMenuItem,
             this.editContactToolStripMenuItem,
-            this.removeCpntactToolStripMenuItem});
+            this.removeContactToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -165,12 +166,12 @@
             this.editContactToolStripMenuItem.Text = "Edit Contact";
             this.editContactToolStripMenuItem.Click += new System.EventHandler(this.EditContactToolStripMenuItem_Click);
             // 
-            // removeCpntactToolStripMenuItem
+            // removeContactToolStripMenuItem
             // 
-            this.removeCpntactToolStripMenuItem.Name = "removeCpntactToolStripMenuItem";
-            this.removeCpntactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.removeCpntactToolStripMenuItem.Text = "Remove Contact";
-            this.removeCpntactToolStripMenuItem.Click += new System.EventHandler(this.RemoveCpntactToolStripMenuItem_Click);
+            this.removeContactToolStripMenuItem.Name = "removeContactToolStripMenuItem";
+            this.removeContactToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.removeContactToolStripMenuItem.Text = "Remove Contact";
+            this.removeContactToolStripMenuItem.Click += new System.EventHandler(this.RemoveContactToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -332,7 +333,11 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.AutoScroll = true;
+            this.splitContainer1.Panel2.AutoScroll = false;
+            this.splitContainer1.Panel2.HorizontalScroll.Enabled = false;
+            this.splitContainer1.Panel2.HorizontalScroll.Visible = false;
+            this.splitContainer1.Panel2.VerticalScroll.Enabled = false;
+            this.splitContainer1.Panel2.VerticalScroll.Visible = false;
             this.splitContainer1.Panel2.AutoScrollMinSize = new System.Drawing.Size(136, 30);
             this.splitContainer1.Panel2.Controls.Add(this.PhoneTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.SurnameTextBox);
@@ -346,6 +351,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.VKTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.BirthdayDayTool);
             this.splitContainer1.Panel2.Controls.Add(this.NameTextBox);
+            this.splitContainer1.Panel2.Controls.Add(this.BirthDayUserControl);
             this.splitContainer1.Panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.splitContainer1.Size = new System.Drawing.Size(588, 405);
             this.splitContainer1.SplitterDistance = 195;
@@ -371,6 +377,20 @@
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(313, 24);
             this.PhoneTextBox.TabIndex = 18;
+
+            //
+            // BirthDayUserControl
+            //
+            this.BirthDayUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Left)
+                                                                                    | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.BirthDayUserControl.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BirthDayUserControl.Enabled = false;
+            this.BirthDayUserControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BirthDayUserControl.Location = new System.Drawing.Point(-1, 264);
+            this.BirthDayUserControl.Name = "BirthDayUserControl";
+            this.BirthDayUserControl.Size = new System.Drawing.Size(513, 141);
+            this.BirthDayUserControl.TabIndex = 19;
+
             // 
             // ContactsApp
             // 
@@ -407,7 +427,7 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addContactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editContactToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem removeCpntactToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeContactToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label Find;
@@ -426,6 +446,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button DeleteContactButton;
         private System.Windows.Forms.MaskedTextBox PhoneTextBox;
+        private BirthDayUserControl BirthDayUserControl;
     }
 }
 

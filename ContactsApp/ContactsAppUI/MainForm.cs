@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using ContactsApp;
 
@@ -18,6 +19,7 @@ namespace ContactsAppUI
         {
             InitializeComponent();
 
+            BirthDayUserControl.Visible = false;
 
             _projectManager = new ProjectManager(Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
@@ -31,6 +33,10 @@ namespace ContactsAppUI
             {
                 _project = new Project();
             }
+
+            var clock = new Clock();
+            clock.NewDay += (sender, args) => CheckContactsOnBirthDay();
+            CheckContactsOnBirthDay();
         }
 
         /// <summary>
@@ -70,6 +76,8 @@ namespace ContactsAppUI
                 ContactsList.Items.Add($"{addContactForm.NewContact.Name} " +
                                        $"{addContactForm.NewContact.Surname}");
             }
+
+            CheckContactsOnBirthDay();
         }
 
         /// <summary>
@@ -119,6 +127,7 @@ namespace ContactsAppUI
                 ContactsList.Items.Remove(selectContact);
 
                 ShowListBoxContact();
+                CheckContactsOnBirthDay();
             }
         }
 
@@ -155,7 +164,7 @@ namespace ContactsAppUI
             MethEditContact();
         }
 
-        private void RemoveCpntactToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RemoveContactToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MethRemoveContact();
         }
@@ -172,7 +181,7 @@ namespace ContactsAppUI
             if (_project.Contacts.Count <= 0)
                 return;
 
-            foreach (var t in _project.Contacts) ContactsList.Items.Add($"{t.Name} {t.Surname}");
+            foreach (var t in _project.SortContact()) ContactsList.Items.Add($"{t.Name} {t.Surname}");
         }
 
         public void ClearAll()
@@ -200,14 +209,27 @@ namespace ContactsAppUI
             {
                 ContactsList.Items.Clear();
                 var searchString = textBox.Text;
+                var result = _project.FindContacts(_project.Contacts, searchString);
 
-                foreach (var contact in _project.Contacts)
-                {
-                    if ($"{contact.Name} {contact.Surname}".Contains(searchString))
-                    {
-                        ContactsList.Items.Add($"{contact.Name} {contact.Surname}");
-                    }
-                }
+                foreach (var contact in result) ContactsList.Items.Add($"{contact.Name} {contact.Surname}");
+            }
+        }
+
+        /// <summary>
+        ///     Проверить список контактов на пользователей у которых сегодня день рождения
+        /// </summary>
+        private void CheckContactsOnBirthDay()
+        {
+            BirthDayUserControl.Clear();
+            var birthdayList = _project.ShowBirthdayList(DateTime.Now);
+            if (birthdayList.Any())
+            {
+                BirthDayUserControl.Visible = true;
+                BirthDayUserControl.SetBirhdayContact(birthdayList);
+            }
+            else
+            {
+                BirthDayUserControl.Visible = false;
             }
         }
     }

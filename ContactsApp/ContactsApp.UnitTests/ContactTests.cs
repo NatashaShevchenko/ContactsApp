@@ -1,16 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using NUnit.Framework;
-using ContactsApp;
 
-
-
-namespace ContactsApp.UnitTest
+namespace ContactsApp.UnitTests
 {
-    /// <summary>
-    /// Тесты для Contact.
-    /// </summary>
-    [TestFixture]
-    public class ContactTest
+    [TestFixture()]
+    public class ContactTests
     {
         private Contact _contact;
         private PhoneNumber _number;
@@ -177,7 +175,7 @@ namespace ContactsApp.UnitTest
         [TestCase("1234567890123456", typeof(ArgumentException),
             "Должно возникать исключение, если id Вконтакте длиннее 15 символов",
              TestName = "Присвоение неправильного id Вконтакте больше 15 символов")]
-       
+
         public void TestVkSet_ArgumentNullException(string wrongVK, Type expectedException, string message)
         {
             Assert.Throws(expectedException, () => { _contact.VK = wrongVK; }, message);
@@ -189,12 +187,13 @@ namespace ContactsApp.UnitTest
         /// <param name="wrongNumber"></param>
         /// <param name="expectedException"></param>
         /// <param name="message"></param>
+        [TestCase("", typeof(ArgumentNullException), "Должно возникнуть исключение, если номер телефона пуст",
+            TestName = "Присвоение неправильного номера телефона - номер телефона пуст")]
         [TestCase(79412355565557, typeof(ArgumentException), "Должно возникнуть исключение, если длинна номера телефона больше 11 символов",
                 TestName = "Присвоение неправильного номера телефона - длинна номера больше 11 символов")]
         public void TestPhoneNumberSet_FormatExpected(long wrongNumber, Type expectedException, string message)
         {
-          Assert.Throws(expectedException, () => { _number.Number = wrongNumber; }, message);
+            Assert.Throws(expectedException, () => { _number.Number = wrongNumber; }, message);
         }
-
     }
 }

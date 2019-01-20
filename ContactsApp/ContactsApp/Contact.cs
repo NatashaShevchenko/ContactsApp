@@ -12,34 +12,33 @@ namespace ContactsApp
     /// </summary>
     public class Contact
     {
-        public PhoneNumber Number { get; set; } = new PhoneNumber();
         private string _surname;
         private string _name;
         private DateTime _birthday;
         private string _email;
         private string _vk;
-       
 
+        public PhoneNumber Number { get; set; } = new PhoneNumber();
 
         /// <summary>
         /// Задает и возвращает фамилию контакта
         /// </summary>
         public string Surname
         {
-            get { return _surname; }
+            get => _surname;
             set
             {
                 if (value == string.Empty)
                 {
                     throw new ArgumentNullException("Поле Фамилии не может быть пустым");
                 }
-                else if (value.Length > 50)
+                if (value.Length > 50)
                 {
                     throw new ArgumentException(
                         "Фамилия должна быть короче 50-ти символов");
                 }
-                else
-                    _surname = char.ToUpper(value[0]) + value.Substring(1);
+
+                _surname = char.ToUpper(value[0]) + value.Substring(1);
             }
         }
         /// <summary>
@@ -47,21 +46,22 @@ namespace ContactsApp
         /// </summary>
         public string Name
         {
-            get { return _name; }
+            get => _name;
             set
             {
-                
+
                 if (value == string.Empty)
                 {
                     throw new ArgumentNullException("Поле имени не может быть пустым");
                 }
-                else if (value.Length > 50)
+
+                if (value.Length > 50)
                 {
                     throw new ArgumentException(
                         "Имя должно быть короче 50-ти символов");
                 }
-                else
-                    _name = char.ToUpper(value[0]) + value.Substring(1);
+
+                _name = char.ToUpper(value[0]) + value.Substring(1);
             }
         }
 
@@ -79,8 +79,8 @@ namespace ContactsApp
                     {
                         throw new ArgumentException("E-mail не может быть больше 50 символов");
                     }
-                    else
-                        _email = value;
+
+                    _email = value;
                 }
             }
         }
@@ -98,8 +98,8 @@ namespace ContactsApp
                     {
                         throw new ArgumentException("ID VK должно быть короче 15 символов");
                     }
-                    else
-                        _vk = value;
+
+                    _vk = value;
                 }
             }
         }
@@ -115,12 +115,13 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("Дата рождения не может быть раньше текущего времени, а была" + value.Date.ToLongDateString());
                 }
-                else if (value.Year < 1900)
+
+                if (value.Year < 1900)
                 {
                     throw new IndexOutOfRangeException("Дата рождения не может быть ранее 1900-го года");
                 }
-                else
-                    _birthday = value;
+
+                _birthday = value;
             }
         }
 

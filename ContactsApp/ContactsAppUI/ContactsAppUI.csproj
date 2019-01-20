@@ -64,6 +64,7 @@
     <Compile Include="BirthDayUserControl.Designer.cs">
       <DependentUpon>BirthDayUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clock.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

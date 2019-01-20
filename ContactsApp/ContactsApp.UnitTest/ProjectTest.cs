@@ -12,7 +12,7 @@ namespace ContactsApp.UnitTest
     public class ProjectTest
     {
        
-         [Test(Description = "Проверка добавления контакт в Project")]
+        [Test(Description = "Проверка добавления контакт в Project")]
         public void TestAddContactToProject()
         {
             var contact = new Contact();
@@ -23,7 +23,7 @@ namespace ContactsApp.UnitTest
             contact.VK = "3456533";
             contact.Email = "Natasha@gmail.com";
 
-            var project = new Project();
+            var project = new Project(new List<Contact>(){contact});
             project.Contacts.Add(contact);
             var actual = project.Contacts;
             Assert.AreEqual(project.Contacts, actual, "");
@@ -39,8 +39,8 @@ namespace ContactsApp.UnitTest
                 new Contact {Name = "Name 3"}
             };
 
-            //var project = new Project(contact);
-            //NUnit.Framework.Assert.AreEqual(project.Contacts, contact, "");
+            var project = new Project(contact);
+            Assert.AreEqual(project.Contacts, contact, "");
         }
     }
 }
