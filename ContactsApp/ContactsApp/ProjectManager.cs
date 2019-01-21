@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace ContactsApp
@@ -39,6 +40,11 @@ namespace ContactsApp
         /// <param name="project">Проект.</param>
         public void SaveToFile(Project project)
         {
+            if (project == null)
+            {
+                throw new ArgumentNullException(nameof(project));
+            }
+
             using (var streamWriter = new StreamWriter(_pathToFile))
             using (var jsonWriter = new JsonTextWriter(streamWriter))
             {
@@ -52,7 +58,6 @@ namespace ContactsApp
         /// <returns>Проект.</returns>
         public Project LoadFromFile()
         {
-          
             using (var streamReader = new StreamReader(_pathToFile))
             using (var jsonReader = new JsonTextReader(streamReader))
             {

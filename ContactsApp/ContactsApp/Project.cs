@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApp
 {
-    public class Project
+    public class Project : IEquatable<Project>
     {
         public Project(List<Contact> contacts = null)
         {
@@ -67,6 +67,14 @@ namespace ContactsApp
                 }
             }
             return birthdayContacts;
+        }
+
+        public bool Equals(Project other)
+        {
+            if (other == null)
+                return false;
+
+            return this.Contacts.Equals(other.Contacts);
         }
     }
 }

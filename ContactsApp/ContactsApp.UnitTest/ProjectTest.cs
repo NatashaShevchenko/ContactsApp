@@ -15,18 +15,20 @@ namespace ContactsApp.UnitTest
         [Test(Description = "Проверка добавления контакт в Project")]
         public void TestAddContactToProject()
         {
-            var contact = new Contact();
-            contact.Name = "Natasha";
-            contact.Surname = "Shevchenko";
-            contact.Birthday = new DateTime(2000, 01, 01);
-            //contact.Number = 9999999999;
-            contact.VK = "3456533";
-            contact.Email = "Natasha@gmail.com";
+            var contact = new Contact
+            {
+                Name = "Natasha",
+                Surname = "Shevchenko",
+                Birthday = new DateTime(2000, 01, 01),
+                VK = "3456533",
+                Email = "Natasha@gmail.com"
+            };
 
             var project = new Project(new List<Contact>(){contact});
             project.Contacts.Add(contact);
-            var actual = project.Contacts;
-            Assert.AreEqual(project.Contacts, actual, "");
+            var actual = new List<Contact>(){contact, contact};
+
+            CollectionAssert.AreEqual(project.Contacts, actual, "");
         }
 
         [Test(Description = "Проверка списка контактов в Project")]
@@ -40,7 +42,25 @@ namespace ContactsApp.UnitTest
             };
 
             var project = new Project(contact);
-            Assert.AreEqual(project.Contacts, contact, "");
+            CollectionAssert.AreEqual(project.Contacts, contact, "");
+        }
+
+        [Test(Description = "Проверка создания экземпляра " +
+                            "класса без передачи аргументов конструктору")]
+        public void ConstructorTest_WithoutParameter()
+        {
+            var project = new Project();
+            Assert.NotNull(project);
+            Assert.NotNull(project.Contacts);
+        }
+
+        [Test(Description = "Проверка создания экземпляра " +
+                            "класса при передаче null конструктору")]
+        public void ConstructorTest_NullParameter()
+        {
+            var project = new Project(null);
+            Assert.NotNull(project);
+            Assert.NotNull(project.Contacts);
         }
     }
 }
