@@ -65,7 +65,13 @@ namespace ContactsAppUI
             if (addContactForm.DialogResult == DialogResult.OK)
             {
                 _project.Contacts.Add(addContactForm.NewContact);
-                _contacts.Add(addContactForm.NewContact);
+                _project.SortContact();
+                _contacts.Clear();
+
+                foreach (var contact in _project.SortContact())
+                {
+                    _contacts.Add(contact);
+                }
             }
 
             CheckContactsOnBirthDay();
