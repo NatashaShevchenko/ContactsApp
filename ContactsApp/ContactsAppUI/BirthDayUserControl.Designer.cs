@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BirthDayUserControl));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.birthdayContactsLabel = new System.Windows.Forms.Label();
@@ -36,11 +37,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ContactsAppUI.Properties.Resources.inf_icon__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 6);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(41, 28);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(126, 126);
+            this.pictureBox1.Size = new System.Drawing.Size(67, 71);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -50,7 +51,7 @@
             this.label1.Location = new System.Drawing.Point(140, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 24);
+            this.label1.Size = new System.Drawing.Size(164, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Today is the birthday of:";
             // 
@@ -59,12 +60,12 @@
             this.birthdayContactsLabel.AutoSize = true;
             this.birthdayContactsLabel.Location = new System.Drawing.Point(140, 75);
             this.birthdayContactsLabel.Name = "birthdayContactsLabel";
-            this.birthdayContactsLabel.Size = new System.Drawing.Size(0, 24);
+            this.birthdayContactsLabel.Size = new System.Drawing.Size(0, 18);
             this.birthdayContactsLabel.TabIndex = 2;
             // 
             // BirthDayUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.birthdayContactsLabel);

@@ -195,10 +195,6 @@ namespace ContactsAppUI
             foreach (var t in _project.SortContact()) _contacts.Add(t);
         }
 
-        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-        }
-
         private void ContactsApp_FormClosing(object sender, FormClosingEventArgs e)
         {
             _projectManager.SaveToFile(_project);

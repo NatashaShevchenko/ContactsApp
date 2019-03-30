@@ -58,7 +58,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.DeleteContactButton = new System.Windows.Forms.Button();
             this.PhoneTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.BirthDayUserControl = new BirthDayUserControl();
+            this.BirthDayUserControl = new ContactsAppUI.BirthDayUserControl();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -112,7 +112,6 @@
             this.FindTextBox.Name = "FindTextBox";
             this.FindTextBox.Size = new System.Drawing.Size(141, 24);
             this.FindTextBox.TabIndex = 4;
-            this.FindTextBox.TextChanged += FindTextBoxOnTextChanged;
             // 
             // menuStrip1
             // 
@@ -125,7 +124,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(588, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip1_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -333,11 +331,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.AutoScroll = false;
-            this.splitContainer1.Panel2.HorizontalScroll.Enabled = false;
-            this.splitContainer1.Panel2.HorizontalScroll.Visible = false;
-            this.splitContainer1.Panel2.VerticalScroll.Enabled = false;
-            this.splitContainer1.Panel2.VerticalScroll.Visible = false;
+            this.splitContainer1.Panel2.AutoScroll = true;
             this.splitContainer1.Panel2.AutoScrollMinSize = new System.Drawing.Size(136, 30);
             this.splitContainer1.Panel2.Controls.Add(this.PhoneTextBox);
             this.splitContainer1.Panel2.Controls.Add(this.SurnameTextBox);
@@ -377,20 +371,19 @@
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(313, 24);
             this.PhoneTextBox.TabIndex = 18;
-
-            //
+            // 
             // BirthDayUserControl
-            //
-            this.BirthDayUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Left)
-                                                                                    | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Bottom)));
+            // 
+            this.BirthDayUserControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BirthDayUserControl.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BirthDayUserControl.Enabled = false;
             this.BirthDayUserControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BirthDayUserControl.Location = new System.Drawing.Point(-1, 264);
+            this.BirthDayUserControl.Margin = new System.Windows.Forms.Padding(4);
             this.BirthDayUserControl.Name = "BirthDayUserControl";
             this.BirthDayUserControl.Size = new System.Drawing.Size(513, 141);
             this.BirthDayUserControl.TabIndex = 19;
-
             // 
             // ContactsApp
             // 
@@ -399,6 +392,7 @@
             this.ClientSize = new System.Drawing.Size(588, 433);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ContactsApp";
             this.Text = "ContactsApp";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ContactsApp_FormClosing);
